@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户输入</title>
+</head>
+<body>
+<div id="myApp">
+    <p>最受欢迎的游戏：{{mygame}}</p>
+    <input v-model="mygame">
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var myApp=new Vue({
+        el:'#myApp',
+        data:{
+            mygame:'超级马里奥'
+        }
+    });
+</script>
+</body>
+</html>

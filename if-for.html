@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件if与循环for</title>
+</head>
+<body>
+<div id="myApp">
+    <h3>游戏列表</h3>
+    <div v-if="old_title">最新发卖游戏</div>
+    <div v-if="new_title">游戏热销榜</div>
+    <ol>
+        <li v-for="game in games">
+            {{game.title}}/{{game.price}}元
+        </li>
+    </ol>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var myApp = new Vue({
+        el:"#myApp",
+        data:{
+            old_title:false,
+            new_title:true,
+            games:[
+                {title:'xxxx',price:100},
+                {title:'YYYY',price:900},
+                {title:'ASDF',price:600},
+                {title:'OIUJ',price:300}
+            ],
+        },
+    });
+</script>
+</body>
+</html>
