@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+<div id="myApp">
+    <p>{{message}}</p>
+    <p>{{message | toupper}}</p>
+    <hr>
+    <p>现在的进度是 {{num}}({{num | topercentage}})</p>
+
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var myApp = new Vue({
+        el:'#myApp',
+        data:{
+            message:'Hello Vue.js world.',
+            num:0.3
+        },
+        filters:{
+            toupper:function(value){
+                return value.toUpperCase();
+            },
+            topercentage:function(value){
+                return value*100 + '%';
+            }
+        }
+    });
+</script>
+</body>
+</html>

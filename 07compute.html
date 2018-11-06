@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>compute</title>
+</head>
+<body>
+<div id="myApp">
+    价格是：{{price}}$
+    含税：{{priceInTax}}
+    折合人民币：{{priceInRMB}}
+<hr>
+    价格是：{{price}}$
+    含税：{{price | priceWithTax}}
+    折合人民币：{{price | priceWithTaxInRMB}}
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var myApp = new Vue({
+        el:'#myApp',
+        data:{
+            price:28890
+        },
+        computed:{
+            priceInTax:function(){
+                return this.price*1.08;
+            },
+            priceInRMB:function(){
+                return Math.round(this.priceInTax*6.899);
+            }
+        },
+        filters:{
+            priceWithTax:function(value){
+                return value*1.08;
+            },
+            priceWithTaxInRMB:function(value){
+                return Math.round(value*6.899);
+            }
+        }
+
+    });
+</script>
+</body>
+</html>
