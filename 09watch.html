@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>start vue now</title>
+</head>
+<body>
+<div id="myApp">
+<p>
+    价格：{{price}}$
+    含税：{{priceWithTax}}
+    RMB：{{priceWithTaxInRMB}}
+</p>
+    <button @click="btnClick()">up</button>
+</div>
+
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var myApp=new Vue({
+        el:'#myApp',
+        data:{
+            price:29880,
+            priceWithTax:0,
+            priceWithTaxInRMB:0
+        },
+        watch:{
+            price:function(newVal, oldVal){
+                console.log(newVal, oldVal);
+                this.priceWithTax=Math.round(this.price*1.08);
+                this.priceWithTaxInRMB=Math.round(this.priceWithTax*6.688)
+            }
+        },
+        methods:{
+            btnClick:function(){
+                this.price +=10;
+            }
+        }
+    });
+</script>
+</body>
+</html>
